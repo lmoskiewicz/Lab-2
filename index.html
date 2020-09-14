@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [41.8339042,-88.0121559],
+              zoom: 8
+          });
+
+          L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 8,
+               minZoom: 8
+            }).addTo(map);
+
+            var pinIcon = L.icon({
+    iconUrl: 'pin.png', // url that links to the icon image file
+    iconSize:     [38, 38], // size of the icon image in pixels
+    iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+    popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});
+
+            var marker1 = L.marker([41.9053355,-86.6084997], {icon: pinIcon}).addTo(map);
+            var marker2 = L.marker([41.8299021,-87.6359409], {icon: pinIcon}).addTo(map);
+            var marker3 = L.marker([41.887805,-87.8726898], {icon: pinIcon}).addTo(map);
+            var pic1 = '<img src="https://storage.googleapis.com/hippostcard/p/0a8a158b746196091b1babab39f98074.jpg" alt="Tower Hill" width="250">';
+            var pic2 = '<img src="https://lh5.googleusercontent.com/p/AF1QipPbb1Drr44jq491mE8mWNjbct3usKaEk-tkoq3N=w408-h544-k-no" alt="Guaranteed Rate Field" width="250">';
+            var pic3 = '<img src="https://lh5.googleusercontent.com/p/AF1QipPG3PpFlDFB6Zp0YybKvdCZZofhA7lBtDi94Zw6=w408-h272-k-no" alt="Sugar Fixe" width="250">';
+
+            marker1.bindPopup('<p style="color:green; font-weight:bold"> Tower Hill at Warren Dunes State Park </p>' + pic1);
+            marker2.bindPopup('<p style="color:black; font-weight:bold"> Home of the #1 baseball team in Chicago </p>' + pic2);
+            marker3.bindPopup('<p style="color:pink; font-weight:bold"> The Best Macaron Bakery </p>' + pic3);
+        </script>
+        Icons made by <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+   </body>
+</html>
